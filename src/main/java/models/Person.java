@@ -8,7 +8,7 @@ public class Person {
     private String city;
     private int age;
 
-    public Person(int id, int lastname, int firstname, int city, int age) {
+    public Person(int id, String lastname, String firstname, String city, int age) {
     }
 
     public int getId() {

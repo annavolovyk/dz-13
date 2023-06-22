@@ -24,7 +24,7 @@ public class DBReader {
 
 
             while (resultSet.next()){
-                Person person = new Person(resultSet.getInt("id"), resultSet.getInt("lastname"), resultSet.getInt("firstname"), resultSet.getInt("city"), resultSet.getInt("age"));
+                Person person = new Person(resultSet.getInt("id"), resultSet.getString("lastname"), resultSet.getString("firstname"), resultSet.getString("city"), resultSet.getInt("age"));
                 personsData.add(person);
             }
 
@@ -39,9 +39,9 @@ public class DBReader {
 
             PreparedStatement preparedStatement = connection.prepareStatement(QUERY_INSERT);
             preparedStatement.setInt(1, id);
-            preparedStatement.setNString(2, lastName);
-            preparedStatement.setNString(3, firstName);
-            preparedStatement.setNString(4, city);
+            preparedStatement.setString(2, lastName);
+            preparedStatement.setString(3, firstName);
+            preparedStatement.setString(4, city);
             preparedStatement.setInt(5, age);
 
             preparedStatement.executeUpdate();
@@ -56,7 +56,7 @@ public class DBReader {
 
             PreparedStatement preparedStatement = connection.prepareStatement(QUERY_UPDATE);
             preparedStatement.setInt(1, id);
-            preparedStatement.setNString(2, lastName);
+            preparedStatement.setString(2, lastName);
             preparedStatement.executeUpdate();
 
         } catch (SQLException exception) {
